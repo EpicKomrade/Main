@@ -1,229 +1,241 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Styled Page</title>
 <style>
 
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --card-bg: rgba(255, 255, 255, 0.7);
+}
+
 body {
-background-image: url("https://64.media.tumblr.com/8b8092f8466e7c318912e49e2d789683/004e103f0691baad-2f/s947x500/aa2d338edfc73949a8fe64821a231b211067eb11.gif");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-margin: 0;
-padding: 0;
-font-family: Comic Sans MS;
-min-height: 100vh;
-z-index: 1;
+  background-image: url("https://64.media.tumblr.com/8b8092f8466e7c318912e49e2d789683/004e103f0691baad-2f/s947x500/aa2d338edfc73949a8fe64821a231b211067eb11.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
 }
 
-.card {
-background-color: rgba(255,255,255,0.5);
-width: 60%;
-margin: 60px auto;
-padding: 10px;
-border-radius: 15px;
-text-align: center;
-box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-z-index: 2;
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: -1;
 }
+
+.card, .reflection, .action, .footer-card {
+  background-color: var(--card-bg);
+  width: 60%;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+}
+
 h1 {
-color: #2c3e50;
-margin-bottom: 15px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 2.2em;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
+
 h2 {
-color: #2c3e50;
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-top: 20px;
 }
+
 p {
-font-size: 100%;
-color: #34495e;
-line-height: 1.5;
-margin: 10px 0;
+  font-size: 1.05em;
+  color: #34495e;
+  line-height: 1.6;
+  margin: 15px 0;
 }
 
-
-.footer-card {
-background-color: rgba(255,255,255,0.5);
-width: 60%;
-margin: 20px auto 80px; 
-padding: 15px;
-border-radius: 10px;
-text-align: center;
-box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-font-size: 16px;
-color: #2c3e50;
-z-index: 2;
-}
-
-
-
-.reflection {
-background-color: rgba(255,255,255,0.5);
-width: 75%;
-margin: 20px auto;
-padding: 15px;
-border-radius: 10px;
-text-align: center;
-box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-font-size: 16px;
-color: #2c3e50;
-z-index: 2;
-}
-
-
-.action {
-background-color: rgba(255,255,255,0.5);
-width: 75%;
-margin: 20px auto;
-padding: 15px;
-border-radius: 10px;
-text-align: center;
-box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-font-size: 16px;
-color: #2c3e50;
-z-index: 2;
+#Christ, .Christs {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 #Christ {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  border-style: inset;
-  height: auto;
+  border: 5px solid var(--secondary-color);
   width: 250px;
-  border: 5px inset #3498db;
-  margin: 10px 0;
+  height: auto;
 }
 
 .Christs {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 5px solid var(--accent-color);
   width: 65%;
-  border: 5px inset #e74c3c;
-  margin: 10px 0;
+  height: auto;
 }
 
-.Christs:hover {
-  transform: scale(1.1);
-  opacity: 0.8;         
+#Christ:hover, .Christs:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
-#Christ:hover {
-  transform: scale(1.1);
-  opacity: 0.8;         
+details {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  margin: 15px 0;
+  padding: 15px;
+  transition: all 0.3s ease;
 }
-details, li {
-  text-align: left;
-  padding: 1%;
-}
-summary {
+
+details summary {
   cursor: pointer;
-  color: #2c3e50;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1em;
+  padding: 5px;
 }
+
+details p {
+  font-size: 0.95em;
+  padding: 15px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
 ol {
   padding-left: 20px;
+  text-align: left;
 }
+
 li {
-  margin: 5px 0;
+  margin: 12px 0;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
 }
-details p {
-  font-size: 85%;
-  padding: 10px;
+
+.footer-card {
+  margin-bottom: 40px;
+  font-size: 1em;
 }
-details summary {
-  font-size: 90%;
+
+@media (max-width: 768px) {
+  .card, .reflection, .action, .footer-card {
+    width: 85%;
+    margin: 25px auto;
+    padding: 20px;
+  }
+  
+  #Christ {
+    width: 200px;
+  }
+  
+  .Christs {
+    width: 85%;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  h2 {
+    font-size: 1.3em;
+  }
 }
+
+@media (max-width: 480px) {
+  .card, .reflection, .action, .footer-card {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  #Christ {
+    width: 180px;
+  }
+  
+  .Christs {
+    width: 95%;
+  }
+}
+
 </style>
-
-
 </head>
 <body>
 <div class="card">
-<h1>Wisdom First</h1>
-<h2>Proverbs 4:7</h2>
-<p>"Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding."</p>
+  <h1>Wisdom First</h1>
+  <h2>Proverbs 4:7</h2>
+  <p>"Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding."</p>
 </div>
 
-
-
 <div class="reflection">
-<h2>Reflection</h2>
-
-  <img id="Christ" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUCnbLTWT57sKV2E3dmr7eLLd1g9ZOibb6mQ&s" alt="Jesus Christ">
-
-
-<p>The verse Proverbs 4:7 explains that we should pursue wisdom above all else, as to pursue wisdom is to pursue God. True wisdom is not earthly, while earthly wisdom may lead us to short "victories" in our lives, 
-maybe through immoral means, but it will ultimately lead to ruin without the guidance of God. </p>
-<details>
-  <summary>[details]</summary>
-  <p>
-    In the context of proverbs, Solomon told his son to pursue wisdom above all things. True wisdom is not just earthly knowledge, 
-    nor is it wisdom that can be obtained without the pursuit of God. But a specific wisdom, a wisdom that can only come from God. God's wisdom leads us to love our neighbors just as Christ has loved us. Through God's wisdom, we can see the world for what it truly is, 
-    because God is truth, and through God's wisdom, we can be guided in life to pursue what is good and avoid evil. 
-  </p>
-</details>
-
+  <h2>Reflection</h2>
+  <img id="Christ" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUCnbLTWT57sKV2E3dmr7eLLd1g9ZOibb6mQ&s" alt="Jesus Christ" loading="lazy">
+  
+  <p>The verse Proverbs 4:7 explains that we should pursue wisdom above all else, as to pursue wisdom is to pursue God. True wisdom is not earthly, while earthly wisdom may lead us to short "victories" in our lives, maybe through immoral means, but it will ultimately lead to ruin without the guidance of God.</p>
+  
+  <details>
+    <summary>More details</summary>
+    <p>In the context of proverbs, Solomon told his son to pursue wisdom above all things. True wisdom is not just earthly knowledge, nor is it wisdom that can be obtained without the pursuit of God. But a specific wisdom, a wisdom that can only come from God. God's wisdom leads us to love our neighbors just as Christ has loved us. Through God's wisdom, we can see the world for what it truly is, because God is truth, and through God's wisdom, we can be guided in life to pursue what is good and avoid evil.</p>
+  </details>
 </div>
 
 <div class="action">
-<h2>How to take action</h2>
-
-<img class="Christs" src="https://3.bp.blogspot.com/-z8GB4HZy43k/WxDtyiP4vAI/AAAAAAABGzc/L1hOGBf5s3QbpszHjTnFfo3j0OElCQW2ACLcBGAs/w1200-h630-p-k-no-nu/july.jpeg" alt="Christian Service">
-
-<ol>
+  <h2>How to take action</h2>
+  <img class="Christs" src="https://3.bp.blogspot.com/-z8GB4HZy43k/WxDtyiP4vAI/AAAAAAABGzc/L1hOGBf5s3QbpszHjTnFfo3j0OElCQW2ACLcBGAs/w1200-h630-p-k-no-nu/july.jpeg" alt="Christian Service" loading="lazy">
   
-  <li>To pursue righteousness and avoid sin.
-  
-  <details>
-  <summary>[details]</summary>
-  <p>Start each day with <b>scripture reading</b>, avoid places and situations that lead to temptation, examine your conscience nightly, and seek forgiveness when you fall short. Practice saying "no" to small temptations to build strength against bigger ones.</p>
-  </details>
-  </li>
-  
-  
+  <ol>
+    <li>To pursue righteousness and avoid sin.
+      <details>
+        <summary>How to do this</summary>
+        <p>Start each day with <b>scripture reading</b>, avoid places and situations that lead to temptation, examine your conscience nightly, and seek forgiveness when you fall short. Practice saying "no" to small temptations to build strength against bigger ones.</p>
+      </details>
+    </li>
+    
     <li>To seek guidance and prayer.
-  
-  <details>
-  <summary>[details]</summary>
-  <p>Establish a <i>daily prayer routine</i> - morning offering, grace before meals, and night prayers. Find a spiritual mentor or join a youth group. Keep a prayer journal to track your conversations with God and notice how He answers prayers over time.</p>
-  </details>
-  
-  
-  </li>
-  
-      <li>To help thy neighbor, according to God's commandments.
-  
-  <details>
-  <summary>[details]</summary>
-  <p>Look for opportunities to serve others daily - help classmates who are struggling, volunteer at church events, visit elderly relatives or neighbors. Practice <u>kindness in words and actions</u>, even when no one is watching.</p>
-  </details>
-  </li>
-  
-      <li>To pursue wisdom and God's view of the world.
-  
-  <details>
-  <summary>[details]</summary>
-  <p>Study the Bible regularly, read writings of saints and Christian authors, attend religious education classes. Before making decisions, ask: <b>"What would Jesus do?"</b> and consider how choices align with God's will.</p>
-  </details>
-  </li>
-  
-      <li>To stay humble and faithful.
-  
-  <details>
-  <summary>[details]</summary>
-  <p>Acknowledge that all talents and successes come from God. Accept correction gracefully. When facing challenges, trust that God has a plan. Thank God for both blessings and trials, recognizing that both can bring you closer to Him.</p>
-  </details>
-  </li>
-
-</ol>
-
+      <details>
+        <summary>How to do this</summary>
+        <p>Establish a <i>daily prayer routine</i> - morning offering, grace before meals, and night prayers. Find a spiritual mentor or join a youth group. Keep a prayer journal to track your conversations with God and notice how He answers prayers over time.</p>
+      </details>
+    </li>
+    
+    <li>To help thy neighbor, according to God's commandments.
+      <details>
+        <summary>How to do this</summary>
+        <p>Look for opportunities to serve others daily - help classmates who are struggling, volunteer at church events, visit elderly relatives or neighbors. Practice <u>kindness in words and actions</u>, even when no one is watching.</p>
+      </details>
+    </li>
+    
+    <li>To pursue wisdom and God's view of the world.
+      <details>
+        <summary>How to do this</summary>
+        <p>Study the Bible regularly, read writings of saints and Christian authors, attend religious education classes. Before making decisions, ask: <b>"What would Jesus do?"</b> and consider how choices align with God's will.</p>
+      </details>
+    </li>
+    
+    <li>To stay humble and faithful.
+      <details>
+        <summary>How to do this</summary>
+        <p>Acknowledge that all talents and successes come from God. Accept correction gracefully. When facing challenges, trust that God has a plan. Thank God for both blessings and trials, recognizing that both can bring you closer to Him.</p>
+      </details>
+    </li>
+  </ol>
 </div>
-
 
 <div class="footer-card">
-<p>Prepared by: [Your Name Here]</p>
-<p>Grade/Section: Grade 10 St. Michael</p>
-<p>Date: [Date Here]</p>
+  <p>Prepared by: [Your Name Here]</p>
+  <p>Grade/Section: Grade 10 St. Michael</p>
+  <p>Date: [Date Here]</p>
 </div>
-
-
 </body>
-
-
 </html>
